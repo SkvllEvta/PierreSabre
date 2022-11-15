@@ -7,30 +7,54 @@ public class Humain {
 	private String boisson_fav;
 	private int argent;
 	
-//	private String direBonjour() {
-//		return "Bonjour ! Je m'appelle" + nom + "et j'aime boire du" + boisson_fav;
-//	}
+	public Humain(String nom, String boisson_fav , int argent) {
+		this.nom=nom;
+		this.boisson_fav=boisson_fav;
+		this.argent=argent;
+		
+	}
 	
-//	private String boire() {
-//		return "Mmmm, un bon verre de"+ boisson_fav +"GLOUPS !";
-//	}
+	public void direBonjour() {
+		String texte="Bonjour ! Je m'appelle " + nom + " et j'aime boire du " + boisson_fav;
+		parler(texte);
+	}
 	
-	private String acheter(String bien, int prix) {
-		argent=argent-prix;
+	public void boire() {
+		String texte= "Mmmm, un bon verre de "+ boisson_fav +" GLOUPS !";
+			parler(texte);
+	}
+	
+	public String acheter(String bien, int prix) {
+		perdreArgent(prix);
 		return bien;
 	}
 	
-	private int gagnerArgent() {
-		//TODO
+	
+	//Setter
+	public void gagnerArgent(int gain) {
+		this.argent= argent+ gain;
+	}
+	
+	public void perdreArgent(int perte) {
+		this.argent= argent - perte;
+	}
+	
+	private void parler(String texte) {
+		System.out.println("("+nom+")- " + texte);
+	}
+	
+	//Getter
+	public int getArgent() {
 		return argent;
 	}
 	
-	private void perdreArgent() {
-		//TODO
+	//Getter
+	public String getNom() {
+		return nom;
 	}
 	
-	public void parler(String texte) {
-		System.out.println(nom + "-" + texte);
+	//Getter
+	public String getBoisson() {
+		return boisson_fav;
 	}
-	
 }
